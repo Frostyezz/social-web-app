@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center flex-column">
+  <% for(let post of posts) { %>
+      <div class="card mt-3">
+          <img src=<%= post.imgURL %> class="card-img-top" >
+          <div class="card-body">
+            <h3 class="card-title"><%= post.title %></h3>
+            <p class="card-text"><%= post.description %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Posted by <a href="/profile/<%= post.author %>"><%= post.author %></a> </li>
+            <li class="list-group-item">Posted on <%= post.creationDate.getDate() %>/<%=post.creationDate.getMonth()%>/<%= post.creationDate.getFullYear() %></li>
+            <li class="list-group-item"> <%= post.boosts %> boosts</li>
+            <% if(!user.username) {  %>
+              <li class="list-group-item disabled"><a href="/post/<%=post._id %>/boost" class="btn btn-light">Boost</a></li>
+            <% } else { if(user.username === post.author) { %>
+              <li class="list-group-item">
+                  <a href="/post/<%=post._id %>/edit" class="btn btn-light">Edit</a>
+                  <form class="d-inline-block" action="/post/<%=post._id %>/delete_post?_method=DELETE" method="post">
+                    <button type="submit" class="btn btn-light">Delete</button>
+                  </form>
+              </li>
+              <% } else if(!post.boosters.includes(user.username)) { %>
+            <li class="list-group-item"><a href="/post/<%=post._id %>/boost" class="btn btn-light">Boost</a></li>
+            <% } else { %>
+            <li class="list-group-item"><a href="/post/<%=post._id %>/unboost" class="btn btn-light">Unboost</a></li>
+            <% } } %>
+          </ul>
+        </div>
+  <% } %>
+</div>

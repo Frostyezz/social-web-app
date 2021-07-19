@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+<body>
+  <%- include('partials/navbar') %>
+<div class="d-flex align-items-center flex-column">
+  <form class="card mt-3" method="post">
+    <div class="card-body">
+      <label for="exampleInputImg" class="form-label">Image</label>
+      <input type="text" name="imgURL" class="form-control" id="exampleInputImg" aria-describedby="emailHelp">
+      <div id="usernameHelp" class="form-text">Paste the image's URL.</div>
+    </div>
+    <div class="card-body">
+      <label for="exampleInputTitle" class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp">
+      <div id="usernameHelp" class="form-text">Give your post a title!</div>
+    </div>
+    <div class="card-body">
+      <label for="exampleInputDesc" class="form-label">Description</label>
+      <input type="text" name="description" class="form-control" id="exampleInputDesc" aria-describedby="emailHelp">
+      <div id="usernameHelp" class="form-text">What is your post about?</div>
+    </div>
+    <div class="card-body">
+      <button type="submit" class="btn btn-light">Post</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/navbar')  %>
+  <div class="d-flex align-items-center flex-column mt-3">
+    <div class="card mb-3 profile">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<%= result.profileIMG %>" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title"><b>Username:</b> <%= result.username %> </h3>
+            <hr>
+            <h5><b>Bio: </b></h5>
+            <p><%= result.bio %></p>
+            <hr>
+            <h5><b>Joined on:</b> <%= result.since.getDate() %>/<%=result.since.getMonth()%>/<%= result.since.getFullYear() %></h5>
+            <hr>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if(posts != '') { %>
+  <div class="container-fluid text-center my-3">
+    <h1 class="py-3"><b><%= result.username %></b>'s posts</h1>
+  </div>
+  <% } %>
+  <%- include('partials/post') %>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/navbar') %>    
+    <form action="/profile/<%= user.username %>/edit?_method=PUT" class="container my-5" method="post">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Profile Picture</label>
+          <input type="text" name="profileIMG" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Insert the image address of your profile picture.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputUsername" class="form-label">Bio</label>
+            <input type="text" name="bio" class="form-control" minlength="2" maxlength="50" id="exampleInputUsername" aria-describedby="emailHelp">
+            <div id="usernameHelp" class="form-text">Your bio should have between 2 and 50 characters.</div>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+</body>
+</html>
